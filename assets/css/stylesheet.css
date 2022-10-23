@@ -263,7 +263,8 @@ body.dark .switch::before  {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    color: #242526;
+    color: var(--text-color);
+    margin-bottom: 5vh;
 }
 
 .income-total {
@@ -272,8 +273,9 @@ body.dark .switch::before  {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background: var(--income-color);
-    border-radius: 20px;
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .expenses-total {
@@ -282,8 +284,9 @@ body.dark .switch::before  {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background: var(--expenses-color);
-    border-radius: 20px;
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .balance {
@@ -292,8 +295,9 @@ body.dark .switch::before  {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background: var(--secondary-color);
-    border-radius: 20px;
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .income-total h2,
@@ -310,6 +314,22 @@ body.dark .switch::before  {
     margin-bottom: 2vh;
 }
 
+.icons-totals {
+    padding-left: 1rem;
+}
+
+.icons-totals .bx-left-down-arrow-circle {
+    color: var(--income-color);
+}
+
+.icons-totals .bx-right-top-arrow-circle {
+    color: var(--expenses-color);
+}
+
+.icons-totals .bx-wallet {
+    color: var(--primary-color);
+}
+
 #list-dash {
     margin: 5vh 0;
     display: flex;
@@ -317,7 +337,10 @@ body.dark .switch::before  {
     justify-content: space-evenly;
     align-items: center;
     width: 60%;
-    background: var(--sidebar-color);
+    padding: 5vh 0;
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 #list-dash h3 {
@@ -326,11 +349,23 @@ body.dark .switch::before  {
     margin: 3vh 0;
 }
 
+/* Forms Section */
+.forms {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5vh 0;
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 /* Income Section */
 #income-section {
-    height: 100vh;
+    width: 50%;
     display: flex;
-    justify-content: center;
+    height: 100%;
     align-items: center;
     flex-direction: column;
 }
@@ -348,24 +383,25 @@ body.dark .switch::before  {
 .income-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    height: 100%;
     align-items: center;
     width: 80%;
 }
 
 .income-container h1 {
-    margin: 0 0 10vh 0;
+    /* margin: 0 0 10vh 0; */
     text-transform: uppercase;
     color: var(--text-color);
 }
 
 .income-container input {
     border: none;
-    border-radius: 15px;
-    background: var(--sidebar-color);
+    border-radius: 10px;
+    background: var(--body-color);
     height: 50px;
     width: 60%;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--text-color);
     padding-left: 5px;
 }
@@ -374,24 +410,27 @@ body.dark .switch::before  {
     margin-top: 3vh;
     height: 50px;
     width: 60%;
-    border: none;
-    border-radius: 15px;
-    background: var(--income-color);
+    border-radius: 10px;
+    border: .2rem solid var(--income-color);
+    background: var(--sidebar-color);
     color: var(--text-color);
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
 }
 
-.dark .submit-income {
+.submit-income:hover {
+    border: none;
+    background: var(--income-color);
     color: #18191a;
+    transition: var(--tran-06);
 }
 
 /* Expenses Section */
 #expenses-section {
-    height: 100vh;
+    width: 50%;
     display: flex;
-    justify-content: center;
+    height: 100%;
     align-items: center;
     flex-direction: column;
 }
@@ -409,24 +448,24 @@ body.dark .switch::before  {
 .expenses-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    height: 100%;
     align-items: center;
     width: 80%;
 }
 
 .expenses-container h1 {
-    margin: 0 0 10vh 0;
     text-transform: uppercase;
     color: var(--text-color);
 }
 
 .expenses-container input {
     border: none;
-    border-radius: 15px;
-    background: var(--sidebar-color);
+    border-radius: 10px;
+    background: var(--body-color);
     height: 50px;
     width: 60%;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--text-color);
     padding-left: 5px;
 }
@@ -435,18 +474,23 @@ body.dark .switch::before  {
     margin-top: 3vh;
     height: 50px;
     width: 60%;
-    border: none;
-    border-radius: 15px;
-    background: var(--expenses-color);
+    border-radius: 10px;
+    border: .2rem solid var(--expenses-color);
+    background: var(--sidebar-color);
     color: var(--text-color);
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
 }
 
-.dark .submit-expenses {
+.submit-expenses:hover {
+    border: none;
+    background: var(--expenses-color);
     color: #18191a;
+    transition: var(--tran-06);
 }
+
+
 
 /* Expenses List */
 .sublist-content {
@@ -455,6 +499,7 @@ body.dark .switch::before  {
     justify-content: space-around;
     width: 100%;
     padding: 20px 10px;
+    border-left: 0.4rem solid var(--primary-color);
 }
 
 .edit,

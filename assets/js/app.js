@@ -92,13 +92,13 @@ const listCreate = (expenseName, expenseValue) => {
     editButton.classList.add("bx", "bxs-edit", "edit", "icon");
     editButton.style.fontSize = "24px";
     editButton.addEventListener("click", () => {
-        modifyElement(editButton, true);
+        editItem(editButton, true);
     });
     let deleteButton = document.createElement("button");
     deleteButton.classList.add("bx", "bx-trash", "delete", "icon");
     deleteButton.style.fontSize = "24px";
     deleteButton.addEventListener("click", () => {
-        modifyElement(deleteButton);
+        editItem(deleteButton);
     });
     sublistContent.appendChild(editButton);
     sublistContent.appendChild(deleteButton);
@@ -110,6 +110,7 @@ submitAmountBtn.addEventListener("click", () => {
     //Reset input
     if(!userExpenses.value || !productTitle.value){
         errorMessageExpenses.classList.remove("hide");
+        errorMessageBuy.classList.remove("hide");
         return false;
     }
     //Enable buttons
@@ -127,5 +128,4 @@ submitAmountBtn.addEventListener("click", () => {
     //Empty inputs
     productTitle.value = "";
     userExpenses.value = "";
-
 });
