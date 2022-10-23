@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/stylesheet.css">
+    <!-- Boxicons link for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Budgetly - Keep track of you expenses!</title>
+</head>
+
+<body>
+    <!-- Sidebar Navigation - Thanks to www.codinglabweb.com -->
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="assets/images/budgetly.svg" alt="logo">
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">Budgetly</span>
+                    <span class="appdetail">Track Expenses</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#dashboard-section">
+                            <i class='bx bxs-dashboard icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#income-section">
+                            <i class='bx bx-wallet icon'></i>
+                            <span class="text nav-text">Income</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#expenses-section">
+                            <i class='bx bx-cart-add icon'></i>
+                            <span class="text nav-text">Expenses</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#info-section">
+                            <i class='bx bx-info-circle icon'></i>
+                            <span class="text nav-text">Tips & Tricks</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class='bx bxs-moon icon moon'></i>
+                        <i class='bx bxs-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard-section">
+        <h1>Dashboard</h1>
+        <div class="dash-cards">
+            <div class="income-total">
+                <h2>Income</h2>
+                <h1><span id="income-value">0</span> <i class='bx bx-euro'></i></h1>
+            </div>
+            <div class="expenses-total">
+                <h2>Expenses</h2>
+                <h1><span id="expenses-value">0</span> <i class='bx bx-euro'></i></h1>
+            </div>
+            <div class="balance">
+                <h2>Balance</h2>
+                <h1><span id="balance-value">0</span> <i class='bx bx-euro'></i></h1>
+            </div>
+        </div>
+        <div id="list-dash">
+            <h3>Latest Expenses</h3>
+            <div class="expenses-list">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Income Section -->
+    <section id="income-section">
+        <div class="income-container">
+            <h1>Income</h1>
+            <p class="hide error" id="income-error">Please enter a value. Income cannot be negative or empty.</p>
+            <input type="number" id="total-income" placeholder="Enter amount">
+            <button class="submit-income" id="total-income-btn">Set Income</button>
+        </div>
+    </section>
+
+    <!-- Expenses Section -->
+    <section id="expenses-section">
+        <div class="expenses-container">
+            <h1>Expenses</h1>
+            <p class="hide error" id="expenses-title-error">Please enter a name. It cannot be empty</p>
+            <input type="text" class="buy-title" id="buy-title" placeholder="Expense name">
+            <p class="hide error" id="expenses-amount-error">Please enter an amount. It cannot be empty</p>
+            <input type="number" id="buy-amount" placeholder="Amount spent">
+            <button class="submit-expenses" id="submit-amount-btn">Submit</button>
+        </div>
+        <div id="list-dash">
+
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section id="info-section">
+
+    </section>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
