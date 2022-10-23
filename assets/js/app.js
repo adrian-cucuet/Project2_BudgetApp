@@ -55,6 +55,11 @@ totalIncomeBtn.addEventListener("click", () => {
         //Clear input
         totalIncome.value = "";
     }
+
+    totalIncomeBtn.classList.toggle("success");
+    totalIncomeBtn.classList.remove("submit-income:hover", "submit-income");
+    totalIncomeBtn.innerHTML = "<i class='bx bx-like success-icon'></i>";
+    document.getElementById("total-income-btn").disabled = true;
 });
 
 //Disable Buttons

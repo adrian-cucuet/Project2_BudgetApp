@@ -438,6 +438,22 @@ body.dark .switch::before  {
     transition: var(--tran-06);
 }
 
+.success {
+    transition: var(--tran-06);
+    margin-top: 3vh;
+    height: 50px;
+    width: 60%;
+    border-radius: 10px;
+    border: .2rem solid var(--income-color);
+    color: var(--income-color);
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.success-icon {
+    font-size: 2rem;
+}
+
 /* Expenses Section */
 #expenses-section {
     width: 50%;
@@ -512,6 +528,7 @@ body.dark .switch::before  {
     width: 100%;
     padding: 20px 10px;
     border-left: 0.4rem solid var(--primary-color);
+    color: var(--text-color);
 }
 
 .edit,
@@ -537,13 +554,16 @@ body.dark .switch::before  {
 
 /* To Do Section */
 #todo-section {
-    margin-top: 100vh;
+    position: absolute;
+    width: calc(100% - 250px);
+    top: 2000px;
     left: 250px;
     height: 100vh;
     background-color: var(--body-color);
     transition: var(--tran-05);
     display: flex;
     flex-direction: column;
+    align-content: center;
     align-items: center;
 }
 
@@ -555,8 +575,11 @@ body.dark .switch::before  {
 }
 
 .sidebar.close ~ #todo-section{
+    top: 2000px;
+    position: absolute;
     left: 78px;
     height: 100vh;
+    width: calc(100% - 78px);
 }
 body.dark #todo-section .todo-header{
     color: var(--text-color);
