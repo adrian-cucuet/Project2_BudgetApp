@@ -245,10 +245,22 @@ body.dark .switch::before  {
 /* Dashboard Section */
 
 #dashboard-section {
+    position: absolute;
     height: 100vh;
+    width: calc(100% - 250px);
+    top: 0;
+    left: 250px;
+    transition: var(--tran-05);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.sidebar.close ~ #dashboard-section {
+    top: 0;
+    left: 78px;
+    height: 100vh;
+    width: calc(100% - 78px);
 }
 
 #dashboard-section > h1 {
@@ -259,7 +271,7 @@ body.dark .switch::before  {
 }
 
 .dash-cards {
-    width: 80%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -268,7 +280,7 @@ body.dark .switch::before  {
 }
 
 .income-total {
-    width: 20%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -279,7 +291,7 @@ body.dark .switch::before  {
 }
 
 .expenses-total {
-    width: 20%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -290,7 +302,7 @@ body.dark .switch::before  {
 }
 
 .balance {
-    width: 20%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -521,4 +533,142 @@ body.dark .switch::before  {
     justify-content: space-between;
     flex: 1;
     padding: 0 3vh;
+}
+
+/* To Do Section */
+#todo-section {
+    margin-top: 100vh;
+    left: 250px;
+    height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#todo-section .todo-header{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 4vh;
+}
+
+.sidebar.close ~ #todo-section{
+    left: 78px;
+    height: 100vh;
+}
+body.dark #todo-section .todo-header{
+    color: var(--text-color);
+}
+
+#todo-section form {
+    max-width: 80vw;
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#todo-section form input,
+#todo-section form button {
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: var(--sidebar-color);
+}
+
+#todo-section form button {
+    background: var(--sidebar-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--tran-03);
+}
+
+#todo-section form button:hover {
+    color: var(--sidebar-color);
+    background-color: var(--primary-color);
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 50vw;
+}
+
+.todo-list {
+    min-width: 80%;
+    list-style: none;
+}
+
+.todo {
+    margin: 0.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--sidebar-color);
+}
+
+.todo li {
+    flex: 1;
+    color: var(--text-color);
+}
+
+.completed-btn, .deleted-btn {
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.completed-btn:hover, .deleted-btn:hover {
+    background: var(--primary-color);
+    color: var(--sidebar-color);
+}
+
+.todo-item {
+    padding: 0 0.5rem;
+}
+
+.bx-message-square-x,
+.bx-message-square-check {
+    pointer-events: none;
+}
+
+
+/* ANIMATION */
+
+.moving {
+    animation: moving-animation .8s;
+}
+
+@keyframes moving-animation {
+    0% {
+         opacity: 1;
+         transform: translateX(0);
+     }
+ 
+     30% {
+         opacity: 1;
+         transform: translateX(50px);
+     }
+ 
+     80% {
+         opacity: 1;
+         transform: translateX(-800px);
+     }
+ 
+     100% {
+         opacity: 0;
+         transform: translateX(-800px);
+     }
+ }
+
+.done {
+    text-decoration: line-through;
+    opacity: 0.5;
 }

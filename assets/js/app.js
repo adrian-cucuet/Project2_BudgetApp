@@ -129,3 +129,61 @@ submitAmountBtn.addEventListener("click", () => {
     productTitle.value = "";
     userExpenses.value = "";
 });
+
+// ===> To Do Section
+    // Selectors
+
+    const todoInput = document.querySelector(".todo-input");
+    const todoBtn = document.querySelector(".todo-btn");
+    const todoList = document.querySelector(".todo-list");
+
+    //EventListeners
+
+    todoBtn.addEventListener("click", addTodo);
+    todoList.addEventListener("click", deleteItem);
+
+    //Functions
+
+    function addTodo(event){
+        event.preventDefault();
+
+        //Create div element
+        const todoDiv = document.createElement("div");
+        todoDiv.classList.add("todo");
+        //Create li element
+        const newTodo = document.createElement("li");
+        newTodo.innerText = todoInput.value;
+        newTodo.classList.add("todo-item");
+        todoDiv.appendChild(newTodo);
+        //Check Button
+        const completedBtn = document.createElement("button");
+        completedBtn.innerHTML = "<i class='bx bx-message-square-check' ></i>";
+        completedBtn.classList.add("completed-btn");
+        todoDiv.appendChild(completedBtn);
+        //Delete Button
+        const deletedBtn = document.createElement("button");
+        deletedBtn.innerHTML = "<i class='bx bx-message-square-x'></i>";
+        deletedBtn.classList.add("deleted-btn");
+        todoDiv.appendChild(deletedBtn);
+        //Append to ul list
+        todoList.appendChild(todoDiv);
+        //Clear input text
+        todoInput.value = "";
+    };
+
+    function deleteItem(e) {
+        const item = e.target;
+        //Delete item from todo
+        if(item.classList[0] === "deleted-btn"){
+            const todo = item.parentElement;
+            todo.classList.add("moving");
+            todo.addEventListener("animationend", function() {
+                todo.remove();
+            });
+        }
+
+        if(item.classList[0] === "completed-btn"){
+            const todo = item.parentElement;
+            todo.classList.toggle("done");
+        }
+    };

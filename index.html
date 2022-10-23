@@ -35,25 +35,25 @@
                     <li class="nav-link">
                         <a href="#dashboard-section">
                             <i class='bx bxs-dashboard icon'></i>
-                            <span class="text nav-text">Dashboard</span>
+                            <span class="text nav-text">Budget Calculator</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#income-section">
-                            <i class='bx bx-wallet icon'></i>
-                            <span class="text nav-text">Income</span>
+                        <a href="#">
+                            <i class='bx bx-shopping-bag icon'></i>
+                            <span class="text nav-text">Grocery List</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#expenses-section">
-                            <i class='bx bx-cart-add icon'></i>
-                            <span class="text nav-text">Expenses</span>
+                        <a href="#todo-section">
+                            <i class='bx bx-task icon'></i>
+                            <span class="text nav-text">ToDo List</span>
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="#info-section">
                             <i class='bx bx-info-circle icon'></i>
-                            <span class="text nav-text">Tips & Tricks</span>
+                            <span class="text nav-text">How it works?</span>
                         </a>
                     </li>
                 </ul>
@@ -76,36 +76,32 @@
         </div>
     </nav>
 
-    <!-- Dashboard Section -->
+    <!-- Budget Calculator Section -->
     <div id="dashboard-section">
-        <h1>Dashboard</h1>
+        <h1>Budget Calculator</h1>
         <div class="dash-cards">
             <div class="income-total">
                 <h2>Income<span class="icons-totals"><i class='bx bx-left-down-arrow-circle'></i></span></h2>
                 <h1><span id="income-value">0</span> <i class='bx bx-euro'></i></h1>
             </div>
             <div class="expenses-total">
-                <h2>Expenses<span class="icons-totals"><i class='bx bx-right-top-arrow-circle' ></i></span></h2>
+                <h2>Expenses<span class="icons-totals"><i class='bx bx-right-top-arrow-circle'></i></span></h2>
                 <h1><span id="expenses-value">0</span> <i class='bx bx-euro'></i></h1>
             </div>
             <div class="balance">
-                <h2>Balance<span class="icons-totals"><i class='bx bx-wallet' ></i></span></h2>
+                <h2>Balance<span class="icons-totals"><i class='bx bx-wallet'></i></span></h2>
                 <h1><span id="balance-value">0</span> <i class='bx bx-euro'></i></h1>
             </div>
         </div>
         <div class="forms">
-        <!-- Income Section -->
-        <section id="income-section">
+            <!-- Income Section -->
             <div class="income-container">
                 <h1>Income</h1>
                 <p class="hide error" id="income-error">Please enter a value</p>
                 <input type="number" id="total-income" placeholder="Enter amount">
                 <button class="submit-income button" id="total-income-btn">Set Income</button>
             </div>
-        </section>
-
-        <!-- Expenses Section -->
-        <section id="expenses-section">
+            <!-- Expenses Section -->
             <div class="expenses-container">
                 <h1>Expenses</h1>
                 <p class="hide error" id="expenses-title-error">Please enter a name</p>
@@ -114,9 +110,8 @@
                 <input type="number" id="buy-amount" placeholder="Amount spent">
                 <button class="submit-expenses" id="submit-amount-btn">Submit</button>
             </div>
-        </section>
         </div>
-
+        <!-- Expenses List -->
         <div id="list-dash">
             <h3>Latest Expenses</h3>
             <div class="expenses-list">
@@ -125,6 +120,23 @@
         </div>
     </div>
 
+    <!-- ToDo Section -->
+    <section id="todo-section">
+        <div class="todo-header">
+            <h1>TO DO LIST</h1>
+        </div>
+        <form>
+            <input type="text" class="todo-input">
+            <button class="todo-btn" type="submit">
+                <i class='bx bx-plus'></i>
+            </button>
+        </form>
+        <div class="todo-container">
+            <ul class="todo-list">
+            </ul>
+        </div>
+
+    </section>
 
 
     <!-- Info Section -->
