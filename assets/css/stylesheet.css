@@ -25,6 +25,7 @@
     --tran-04: all 0.4s ease;
     --tran-05: all 0.5s ease;
     --tran-06: all 0.9s ease;
+    --tran-07: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 body {
@@ -146,7 +147,7 @@ header .image-text .header-text {
     transition: var(--tran-02);
 }
 
-.sidebar.close .toggle{
+.sidebar.close .toggle {
     transform: translateY(-50%) rotate(0deg);
 }
 
@@ -182,7 +183,7 @@ header .image-text .header-text {
     background: var(--primary-color-light);
 }
 
-.menu-bar .mode .moon-sun{
+.menu-bar .mode .moon-sun {
     height: 50px;
     width: 60px;
     display: flex;
@@ -197,10 +198,11 @@ header .image-text .header-text {
     opacity: 0;
 }
 
-body.dark .mode .moon-sun i.sun{
+body.dark .mode .moon-sun i.sun {
     opacity: 1;
 }
-body.dark .mode .moon-sun i.moon{
+
+body.dark .mode .moon-sun i.moon {
     opacity: 0;
 }
 
@@ -238,7 +240,7 @@ body.dark .mode .moon-sun i.moon{
     transition: var(--tran-03);
 }
 
-body.dark .switch::before  {
+body.dark .switch::before {
     left: 25px;
 }
 
@@ -256,14 +258,14 @@ body.dark .switch::before  {
     align-items: center;
 }
 
-.sidebar.close ~ #dashboard-section {
+.sidebar.close~#dashboard-section {
     top: 0;
     left: 78px;
     height: 100vh;
     width: calc(100% - 78px);
 }
 
-#dashboard-section > h1 {
+#dashboard-section>h1 {
     font-size: 2rem;
     color: var(--text-color);
     margin: 10vh 0;
@@ -402,7 +404,6 @@ body.dark .switch::before  {
 }
 
 .income-container h1 {
-    /* margin: 0 0 10vh 0; */
     text-transform: uppercase;
     color: var(--text-color);
 }
@@ -567,21 +568,22 @@ body.dark .switch::before  {
     align-items: center;
 }
 
-#todo-section .todo-header{
+#todo-section .todo-header {
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--text-color);
     padding: 4vh;
 }
 
-.sidebar.close ~ #todo-section{
+.sidebar.close~#todo-section {
     top: 2000px;
     position: absolute;
     left: 78px;
     height: 100vh;
     width: calc(100% - 78px);
 }
-body.dark #todo-section .todo-header{
+
+body.dark #todo-section .todo-header {
     color: var(--text-color);
 }
 
@@ -639,7 +641,8 @@ body.dark #todo-section .todo-header{
     color: var(--text-color);
 }
 
-.completed-btn, .deleted-btn {
+.completed-btn,
+.deleted-btn {
     background-color: var(--sidebar-color);
     color: var(--text-color);
     border: none;
@@ -648,7 +651,8 @@ body.dark #todo-section .todo-header{
     font-size: 1.5rem;
 }
 
-.completed-btn:hover, .deleted-btn:hover {
+.completed-btn:hover,
+.deleted-btn:hover {
     background: var(--primary-color);
     color: var(--sidebar-color);
 }
@@ -671,27 +675,382 @@ body.dark #todo-section .todo-header{
 
 @keyframes moving-animation {
     0% {
-         opacity: 1;
-         transform: translateX(0);
-     }
- 
-     30% {
-         opacity: 1;
-         transform: translateX(50px);
-     }
- 
-     80% {
-         opacity: 1;
-         transform: translateX(-800px);
-     }
- 
-     100% {
-         opacity: 0;
-         transform: translateX(-800px);
-     }
- }
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateX(50px);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateX(-800px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-800px);
+    }
+}
 
 .done {
     text-decoration: line-through;
     opacity: 0.5;
+}
+
+
+/* Screen size less than 672px */
+
+@media only screen and (max-width: 672px) {
+
+    /* Mobile Nav Special Thanks to CodingLab for amazing tutorials */
+    .navbar {
+        position: fixed;
+        bottom: 10px;
+        height: 120px;
+        width: 100%;
+        max-width: 412px;
+        background: var(--sidebar-color);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .navbar ul {
+        position: relative;
+        display: flex;
+    }
+
+    .navbar ul li {
+        position: relative;
+        list-style-type: none;
+    }
+
+    .navbar ul li a {
+        position: relative;
+        height: 120px;
+        width: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    .navbar ul li a i {
+        position: absolute;
+        font-size: 38px;
+        color: var(--primary-color);
+    }
+
+    ul li a i.activeIcon {
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.6s ease;
+        transition-delay: 0.2s;
+    }
+
+    .navbar ul li.active a i {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .navbar ul .indicator {
+        position: absolute;
+        bottom: -19px;
+        left: 34px;
+        height: 36px;
+        width: 25px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    ul .indicator::before {
+        content: "";
+        position: absolute;
+        left: -15px;
+        bottom: 50%;
+        height: 22px;
+        width: 20px;
+        background: var(--sidebar-color);
+        border-bottom-right-radius: 20px;
+        box-shadow: 0 20px 0 var(--body-color);
+    }
+
+    ul .indicator::after {
+        content: "";
+        position: absolute;
+        right: -15px;
+        bottom: 50%;
+        height: 22px;
+        width: 20px;
+        background: var(--sidebar-color);
+        border-bottom-left-radius: 20px;
+        box-shadow: 0 20px 0 var(--body-color);
+    }
+
+    /* Sidebar Hide */
+
+    .sidebar,
+    .sidebar.close {
+        display: none;
+        width: 0px;
+    }
+
+    /* Dashboard Section */
+
+    #dashboard-section {
+        clear: both;
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        transition: var(--tran-05);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar.close~#dashboard-section {
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .dash-cards {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        color: var(--text-color);
+        margin-bottom: 5vh;
+    }
+
+    #dashboard-section>h1 {
+        font-size: 2rem;
+        color: var(--text-color);
+        margin: 5vh;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .income-total {
+        width: 100%;
+        margin-bottom: 5vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: var(--sidebar-color);
+        border-radius: 10px;
+        box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    }
+
+    .expenses-total {
+        width: 100%;
+        margin-bottom: 5vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: var(--sidebar-color);
+        border-radius: 10px;
+        box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    }
+
+    .balance {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: var(--sidebar-color);
+        border-radius: 10px;
+        box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    }
+
+    .forms {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5vh 0;
+        background-color: var(--sidebar-color);
+        border-radius: 10px;
+        box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+        align-items: center;
+    }
+
+    .separator {
+        border-bottom: 0.5px solid var(--primary-color);
+        width: 80%;
+        display: flex;
+        align-items: center;
+        margin: 5vh 0;
+    }
+
+    .income-container {
+        width: 90%;
+    }
+
+    .income-container input {
+        width: 90%;
+    }
+
+    .expenses-container {
+        width: 90%;
+    }
+
+    .expenses-container input {
+        width: 90%;
+    }
+
+    .income-total h2,
+    .expenses-total h2,
+    .balance h2 {
+        font-size: 2rem;
+    }
+
+    #list-dash {
+        width: 90%;
+    }
+
+    #list-dash h3 {
+        font-size: 1.5rem;
+    }
+
+    .text-list-dash {
+        font-size: 1rem;
+    }
+
+    .bxs-edit,
+    .bx-trash {
+        font-size: 34px;
+    }
+
+    .sidebar.close~#todo-section {
+        height: 100vh;
+        width: 100%;
+    }
+
+    /* To Do Section */
+    #todo-section {
+        position: absolute;
+        width: 90%;
+        top: 2000px;
+        height: 100vh;
+        background-color: var(--body-color);
+        transition: var(--tran-05);
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+
+    #todo-section .todo-header {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--text-color);
+        padding: 4vh;
+    }
+
+    .sidebar.close~#todo-section {
+        top: 2000px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+    }
+
+    body.dark #todo-section .todo-header {
+        color: var(--text-color);
+    }
+
+    #todo-section form {
+        width: 90%;
+        min-height: 20vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #todo-section form input,
+    #todo-section form button {
+        padding: 0.5rem;
+        width: 90%;
+        font-size: 2rem;
+        border: none;
+        background: var(--sidebar-color);
+    }
+
+    #todo-section form button {
+        width: 15%;
+        background: var(--sidebar-color);
+        color: var(--text-color);
+        cursor: pointer;
+        transition: var(--tran-03);
+    }
+
+    #todo-section form button:hover {
+        color: var(--sidebar-color);
+        background-color: var(--primary-color);
+    }
+
+    .todo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 50vw;
+    }
+
+    .todo-list {
+        min-width: 80%;
+        list-style: none;
+    }
+
+    .todo {
+        margin: 0.5rem;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--sidebar-color);
+    }
+
+    .todo li {
+        flex: 1;
+        color: var(--text-color);
+    }
+
+    .completed-btn,
+    .deleted-btn {
+        background-color: var(--sidebar-color);
+        color: var(--text-color);
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    .completed-btn:hover,
+    .deleted-btn:hover {
+        background: var(--primary-color);
+        color: var(--sidebar-color);
+    }
+
+    .todo-item {
+        padding: 0 0.5rem;
+    }
+
+    .bx-message-square-x,
+    .bx-message-square-check {
+        pointer-events: none;
+    }
+
 }
