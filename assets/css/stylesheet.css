@@ -771,18 +771,18 @@ body.dark #todo-section .todo-header {
 .indicator::after{
     content: '';
     position: absolute;
-    bottom: -14px;
+    bottom: -10px;
     height: 24px;
     width: 19px;
 }
 .indicator::before{
-    left: -26px;
+    left: -18px;
     background-color: #FFF;
     border-top-left-radius: 25px;
     box-shadow: 1px -13px #fff;
 }
 .indicator::after{
-    right: -26px;
+    right: -18px;
     background-color: #FFF;
     border-top-right-radius: 25px;
     box-shadow: -1px -13px #fff;
