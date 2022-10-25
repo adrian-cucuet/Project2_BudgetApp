@@ -709,7 +709,6 @@ body.dark #todo-section .todo-header {
     nav{
     position: fixed;
     bottom: 0;
-    left: 0;
     width: 100%;
     border-radius: 12px;
     background: #FFF;
@@ -718,7 +717,7 @@ body.dark #todo-section .todo-header {
 }
 .nav-content{
     display: flex;
-    height: 120px;
+    height: 100px;
     align-items: center;
     list-style: none;
     position: relative;
@@ -728,7 +727,7 @@ body.dark #todo-section .todo-header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 120px;
+    height: 100px;
     width: 95px;
     text-decoration: none;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -781,14 +780,12 @@ body.dark #todo-section .todo-header {
     background-color: #FFF;
     border-top-right-radius: 25px;
     box-shadow: 1px -13px var(--body-color);
-    overflow: hidden;
 }
 .indicator::after{
     right: -22px;
     background-color: #FFF;
     border-top-left-radius: 25px;
     box-shadow: -1px -13px var(--body-color);
-    overflow: hidden;
 }
 
     /* Sidebar Hide */
