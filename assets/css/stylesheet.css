@@ -771,7 +771,7 @@ body.dark #todo-section .todo-header {
 .indicator::after{
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
     height: 24px;
     width: 19px;
 }
