@@ -776,13 +776,13 @@ body.dark #todo-section .todo-header {
     width: 19px;
 }
 .indicator::before{
-    left: -22px;
+    left: -26px;
     background-color: #FFF;
     border-top-left-radius: 25px;
     box-shadow: 1px -13px #fff;
 }
 .indicator::after{
-    right: -22px;
+    right: -26px;
     background-color: #FFF;
     border-top-right-radius: 25px;
     box-shadow: -1px -13px #fff;
