@@ -781,12 +781,14 @@ body.dark #todo-section .todo-header {
     background-color: #FFF;
     border-top-right-radius: 25px;
     box-shadow: 1px -13px var(--body-color);
+    overflow: hidden;
 }
 .indicator::after{
     right: -22px;
     background-color: #FFF;
     border-top-left-radius: 25px;
     box-shadow: -1px -13px var(--body-color);
+    overflow: hidden;
 }
 
     /* Sidebar Hide */
