@@ -196,15 +196,15 @@ submitAmountBtn.addEventListener("click", () => {
 
 // MOBILE NAV BAR
 
-const navBar = document.querySelector(".navbar")
-        allLi = document.querySelectorAll("li");
-
-  allLi.forEach((li, index) => {
-     li.addEventListener("click" , e =>{
-       navBar.querySelector(".active").classList.remove("active");
-       li.classList.add("active");
-
-       const indicator = document.querySelector(".indicator");
-       indicator.style.transform = `translateX(calc(${index * 90}px))`;
-     });
-  });
+ const linkItems = document.querySelectorAll(".link-item");
+ 
+linkItems.forEach((linkItem, index) => {
+    linkItem.addEventListener("click", () => {
+        document.querySelector(".active").classList.remove("active");
+        linkItem.classList.add("active");
+ 
+        const indicator = document.querySelector(".indicator");
+ 
+        indicator.style.left = `${index * 95 + 48}px`;
+    })
+})
