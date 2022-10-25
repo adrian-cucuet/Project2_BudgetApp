@@ -1,25 +1,41 @@
 // ===> SideBar Menu - Tutorial from www.codinglabweb.com 
 
 const body = document.querySelector("body"),
-      sidebar = body.querySelector(".sidebar"),
-      toggle = body.querySelector(".toggle"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
+    sidebar = body.querySelector(".sidebar"),
+    toggle = body.querySelector(".toggle"),
+    modeSwitch = body.querySelector(".toggle-switch"),
+    modeText = body.querySelector(".mode-text");
 
-      toggle.addEventListener("click", () =>{
-        sidebar.classList.toggle("close");
-      });
+toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+});
 
-      modeSwitch.addEventListener("click", () =>{
-        body.classList.toggle("dark");
+modeSwitch.addEventListener("click", () => {
+    body.classList.toggle("dark");
 
-        if(body.classList.contains("dark")){
-            modeText.innerText = "Light mode";
-        }else{
-            modeText.innerText = "Dark mode";
-        }
-    
-      });
+    if (body.classList.contains("dark")) {
+        modeText.innerText = "Light mode";
+    } else {
+        modeText.innerText = "Dark mode";
+    }
+
+});
+
+// ===> Function for Dark - Light mode mobile navigation
+function darkLight() {
+    body.classList.toggle("dark");
+    preventDefault();
+    const linkText = body.querySelector(".dl-text");
+    const linkIcon = body.querySelector(".dark-light");
+
+    if (body.classList.contains("dark")) {
+        linkIcon.classList = "bx bx-sun link-icon dark-light toggle-switch";
+        linkText.innerText = "Light";
+    } else {
+        linkIcon.classList = "bx bxs-moon link-icon dark-light toggle-switch";
+        linkText.innerText = "Dark";
+    };
+}
 
 /* Selectors */
 
@@ -39,12 +55,12 @@ const list = document.getElementById("list-dash");
 
 let tempAmount = 0;
 
-// Set Income Amount
+// ===> Set Income Amount
 totalIncomeBtn.addEventListener("click", () => {
     tempAmount = totalIncome.value;
 
     //error if empty or negative
-    if(tempAmount === "" || tempAmount < 0){
+    if (tempAmount === "" || tempAmount < 0) {
         errorMessageIncome.classList.remove("hide");
     } else {
         errorMessageIncome.classList.add("hide");
@@ -62,7 +78,7 @@ totalIncomeBtn.addEventListener("click", () => {
     document.getElementById("total-income-btn").disabled = true;
 });
 
-//Disable Buttons
+// ===> Disable Buttons
 const disableButtons = (bool) => {
     let editButtons = document.getElementsByClassName("edit");
     Array.from(editButtons).forEach((element) => {
@@ -70,13 +86,13 @@ const disableButtons = (bool) => {
     });
 };
 
-//Edit elements on expenses list
-const editItem = (item,edit=false) => {
+// ===> Edit elements on expenses list
+const editItem = (item, edit = false) => {
     let parentDiv = item.parentElement;
     let currentBalance = balance.innerText;
     let currentExpenses = expenses.innerText;
     let parentAmount = parentDiv.querySelector(".amount").innerText;
-    if(edit){
+    if (edit) {
         let parentText = parentDiv.querySelector(".product").innerText;
         productTitle.value = parentText;
         userExpenses.value = parentAmount;
@@ -87,7 +103,7 @@ const editItem = (item,edit=false) => {
     parentDiv.remove();
 };
 
-//Function to create expenses list
+// ===> Function to create expenses list
 const listCreate = (expenseName, expenseValue) => {
     let sublistContent = document.createElement("div");
     sublistContent.classList.add("sublist-content");
@@ -110,10 +126,10 @@ const listCreate = (expenseName, expenseValue) => {
     document.getElementById("list-dash").appendChild(sublistContent);
 };
 
-//Function to Add Expenses
+// ===> Function to Add Expenses
 submitAmountBtn.addEventListener("click", () => {
     //Reset input
-    if(!userExpenses.value || !productTitle.value){
+    if (!userExpenses.value || !productTitle.value) {
         errorMessageExpenses.classList.remove("hide");
         errorMessageBuy.classList.remove("hide");
         return false;
@@ -136,75 +152,73 @@ submitAmountBtn.addEventListener("click", () => {
 });
 
 // ===> To Do Section
-    // Selectors
+// Selectors
+const todoInput = document.querySelector(".todo-input");
+const todoBtn = document.querySelector(".todo-btn");
+const todoList = document.querySelector(".todo-list");
 
-    const todoInput = document.querySelector(".todo-input");
-    const todoBtn = document.querySelector(".todo-btn");
-    const todoList = document.querySelector(".todo-list");
+//EventListeners
+todoBtn.addEventListener("click", addTodo);
+todoList.addEventListener("click", deleteItem);
 
-    //EventListeners
+//Functions
+function addTodo(event) {
+    event.preventDefault();
 
-    todoBtn.addEventListener("click", addTodo);
-    todoList.addEventListener("click", deleteItem);
+    //Create div element
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo");
+    //Create li element
+    const newTodo = document.createElement("li");
+    newTodo.innerText = todoInput.value;
+    newTodo.classList.add("todo-item");
+    todoDiv.appendChild(newTodo);
+    //Check Button
+    const completedBtn = document.createElement("button");
+    completedBtn.innerHTML = "<i class='bx bx-message-square-check' ></i>";
+    completedBtn.classList.add("completed-btn");
+    todoDiv.appendChild(completedBtn);
+    //Delete Button
+    const deletedBtn = document.createElement("button");
+    deletedBtn.innerHTML = "<i class='bx bx-message-square-x'></i>";
+    deletedBtn.classList.add("deleted-btn");
+    todoDiv.appendChild(deletedBtn);
+    //Append to ul list
+    todoList.appendChild(todoDiv);
+    //Clear input text
+    todoInput.value = "";
+};
 
-    //Functions
+// ===> To delete items from todo list
+function deleteItem(e) {
+    const item = e.target;
+    //Delete item from todo
+    if (item.classList[0] === "deleted-btn") {
+        const todo = item.parentElement;
+        todo.classList.add("moving");
+        todo.addEventListener("animationend", function () {
+            todo.remove();
+        });
+    }
 
-    function addTodo(event){
-        event.preventDefault();
-
-        //Create div element
-        const todoDiv = document.createElement("div");
-        todoDiv.classList.add("todo");
-        //Create li element
-        const newTodo = document.createElement("li");
-        newTodo.innerText = todoInput.value;
-        newTodo.classList.add("todo-item");
-        todoDiv.appendChild(newTodo);
-        //Check Button
-        const completedBtn = document.createElement("button");
-        completedBtn.innerHTML = "<i class='bx bx-message-square-check' ></i>";
-        completedBtn.classList.add("completed-btn");
-        todoDiv.appendChild(completedBtn);
-        //Delete Button
-        const deletedBtn = document.createElement("button");
-        deletedBtn.innerHTML = "<i class='bx bx-message-square-x'></i>";
-        deletedBtn.classList.add("deleted-btn");
-        todoDiv.appendChild(deletedBtn);
-        //Append to ul list
-        todoList.appendChild(todoDiv);
-        //Clear input text
-        todoInput.value = "";
-    };
-
-    function deleteItem(e) {
-        const item = e.target;
-        //Delete item from todo
-        if(item.classList[0] === "deleted-btn"){
-            const todo = item.parentElement;
-            todo.classList.add("moving");
-            todo.addEventListener("animationend", function() {
-                todo.remove();
-            });
-        }
-
-        if(item.classList[0] === "completed-btn"){
-            const todo = item.parentElement;
-            todo.classList.toggle("done");
-        }
-    };
+    if (item.classList[0] === "completed-btn") {
+        const todo = item.parentElement;
+        todo.classList.toggle("done");
+    }
+};
 
 
-// MOBILE NAV BAR
+// ===> MOBILE NAV BAR
 
- const linkItems = document.querySelectorAll(".link-item");
- 
+const linkItems = document.querySelectorAll(".link-item");
+
 linkItems.forEach((linkItem, index) => {
     linkItem.addEventListener("click", () => {
         document.querySelector(".active").classList.remove("active");
         linkItem.classList.add("active");
- 
+
         const indicator = document.querySelector(".indicator");
- 
+
         indicator.style.left = `${index * 95 + 48}px`;
     })
 })
