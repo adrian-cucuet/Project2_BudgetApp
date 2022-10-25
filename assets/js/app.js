@@ -24,15 +24,14 @@ modeSwitch.addEventListener("click", () => {
 // ===> Function for Dark - Light mode mobile navigation
 function darkLight() {
     body.classList.toggle("dark");
-    preventDefault();
     const linkText = body.querySelector(".dl-text");
     const linkIcon = body.querySelector(".dark-light");
 
     if (body.classList.contains("dark")) {
-        linkIcon.classList = "bx bx-sun link-icon dark-light toggle-switch";
+        linkIcon.classList = "bx bx-sun link-icon dark-light";
         linkText.innerText = "Light";
     } else {
-        linkIcon.classList = "bx bxs-moon link-icon dark-light toggle-switch";
+        linkIcon.classList = "bx bxs-moon link-icon dark-light";
         linkText.innerText = "Dark";
     };
 }
@@ -220,5 +219,5 @@ linkItems.forEach((linkItem, index) => {
         const indicator = document.querySelector(".indicator");
 
         indicator.style.left = `${index * 95 + 48}px`;
-    })
-})
+    });
+});
