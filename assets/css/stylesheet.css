@@ -761,8 +761,8 @@ body.dark #todo-section .todo-header {
     left: 48px;
     height: 36px;
     width: 36px;
-    background-color: #FFF;
-    border: 6px solid var(--body-color);
+    background-color: var(--primary-color);
+    border: 6px solid #fff;
     border-radius: 50%;
     transform: translateX(-50%);
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -778,14 +778,14 @@ body.dark #todo-section .todo-header {
 .indicator::before{
     left: -22px;
     background-color: #FFF;
-    border-top-right-radius: 25px;
-    box-shadow: 1px -13px var(--body-color);
+    border-top-left-radius: 25px;
+    box-shadow: 1px -13px #fff;
 }
 .indicator::after{
     right: -22px;
     background-color: #FFF;
-    border-top-left-radius: 25px;
-    box-shadow: -1px -13px var(--body-color);
+    border-top-right-radius: 25px;
+    box-shadow: -1px -13px #fff;
 }
 
     /* Sidebar Hide */
