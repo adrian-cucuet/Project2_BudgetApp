@@ -9,10 +9,10 @@
     <!-- Boxicons link for icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <title>Budgetly - Keep track of you expenses!</title>
 </head>
 
@@ -76,7 +76,7 @@
     </nav>
 
     <!-- Budget Calculator Section -->
-    <div id="dashboard-section" class="tabcontent">
+    <div id="dashboard-section">
         <h1>Budget Calculator</h1>
         <div class="dash-cards">
             <div class="income-total">
@@ -121,7 +121,7 @@
     </div>
 
     <!-- ToDo Section -->
-    <section id="todo-section" class="tabcontent">
+    <div id="todo-section">
         <div class="todo-header">
             <h1>TO DO LIST</h1>
         </div>
@@ -136,43 +136,43 @@
             </ul>
         </div>
 
-    </section>
+    </div>
 
 
     <!-- Info Section -->
-    <section id="info-section" class="tabcontent">
+    <div id="info-section">
 
-    </section>
+    </div>
 
     <nav class="nav">
-            <ul class="nav-content">
-                <li class="nav-list">
-                    <a href="#dashboard-section" class="link-item active">
-                        <i class='bx bx-wallet link-icon'></i>
-                        <span class="link-text">Budget</span>
-                    </a>
-                </li>
-                <li class="nav-list">
-                    <a href="#todo-section" class="link-item">
-                        <i class='bx bx-task link-icon'></i>
-                        <span class="link-text">To Do</span>
-                    </a>
-                </li>
-                <li class="nav-list">
-                    <a href="#" class="link-item">
-                        <i class='bx bx-info-circle link-icon'></i>
-                        <span class="link-text">Help</span>
-                    </a>
-                </li>
-                <li class="nav-list" onclick="darkLight()">
-                    <div class="link-btn">
-                        <i class='bx bxs-moon link-icon dark-light'></i>
-                        <span class="link-text dl-text">Dark</span>
-                    </div>
-                </li>
-                <span class="indicator"></span>
-            </ul>
-        </nav>
+        <ul class="nav-content">
+            <li class="nav-list">
+                <a href="#dashboard-section" class="link-item active">
+                    <i class='bx bx-wallet link-icon'></i>
+                    <span class="link-text">Budget</span>
+                </a>
+            </li>
+            <li class="nav-list">
+                <a href="#todo-section" class="link-item">
+                    <i class='bx bx-task link-icon'></i>
+                    <span class="link-text">To Do</span>
+                </a>
+            </li>
+            <li class="nav-list">
+                <a href="#info-section" class="link-item">
+                    <i class='bx bx-info-circle link-icon'></i>
+                    <span class="link-text">Help</span>
+                </a>
+            </li>
+            <li class="nav-list" onclick="darkLight()">
+                <div class="link-dl">
+                    <i class='bx bxs-moon link-icon dark-light'></i>
+                    <span class="link-text dl-text">Dark</span>
+                </div>
+            </li>
+            <span class="indicator"></span>
+        </ul>
+    </nav>
 
     <script src="assets/js/app.js"></script>
 </body>
