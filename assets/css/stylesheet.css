@@ -32,6 +32,7 @@ body {
     height: 100vh;
     background: var(--body-color);
     transition: var(--tran-06);
+    overflow-x: hidden;
 }
 
 body.dark {
@@ -44,7 +45,6 @@ body.dark {
     --toogle-color: #fff;
     --text-color: #ccc;
 }
-
 
 /* === Side Navigation - Tutorial from www.codinglabweb.com === */
 .sidebar {
@@ -249,6 +249,7 @@ body.dark .switch::before {
 #dashboard-section {
     position: absolute;
     height: 100vh;
+    overflow: auto;
     width: calc(100% - 250px);
     top: 0;
     left: 250px;
@@ -314,6 +315,12 @@ body.dark .switch::before {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+body.dark .income-total,
+body.dark .expenses-total,
+body.dark .balance{
+    box-shadow: none;
+}
+
 .income-total h2,
 .expenses-total h2,
 .balance h2 {
@@ -357,6 +364,10 @@ body.dark .switch::before {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+body.dark #list-dash{
+    box-shadow: none;
+}
+
 #list-dash h3 {
     color: var(--text-color);
     text-transform: uppercase;
@@ -373,6 +384,10 @@ body.dark .switch::before {
     background-color: var(--sidebar-color);
     border-radius: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+body.dark .forms{
+    box-shadow: none;
 }
 
 /* Income Section */
@@ -557,9 +572,10 @@ body.dark .switch::before {
 #todo-section {
     position: absolute;
     width: calc(100% - 250px);
-    top: 2000px;
-    left: 250px;
+    top: 0;
+    left: 3250px;
     height: 100vh;
+    overflow: auto;
     background-color: var(--body-color);
     transition: var(--tran-05);
     display: flex;
@@ -568,19 +584,19 @@ body.dark .switch::before {
     align-items: center;
 }
 
+.sidebar.close~#todo-section {
+    top: 0;
+    position: absolute;
+    left: 3078px;
+    height: 100vh;
+    width: calc(100% - 78px);
+}
+
 #todo-section .todo-header {
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--text-color);
     padding: 4vh;
-}
-
-.sidebar.close~#todo-section {
-    top: 2000px;
-    position: absolute;
-    left: 78px;
-    height: 100vh;
-    width: calc(100% - 78px);
 }
 
 body.dark #todo-section .todo-header {
@@ -727,6 +743,7 @@ body.dark #todo-section .todo-header {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     background: var(--sidebar-color);
+    padding: 0 25px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 .nav-content{
@@ -736,7 +753,8 @@ body.dark #todo-section .todo-header {
     list-style: none;
     position: relative;
 }
-.link-item{
+.link-item,
+.link-dl{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -747,23 +765,9 @@ body.dark #todo-section .todo-header {
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.link-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100px;
-    width: 95px;
-    text-decoration: none;
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.link-item.active{
+.link-item.active,
+.link-dl.active{
     transform: translateY(-10px);
-}
-
-.link-btn{
-transform: translateY(-10px);
 }
 
 .link-icon{
@@ -771,9 +775,12 @@ transform: translateY(-10px);
     color: var(--text-color);
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-.link-item.active .link-icon{
+
+.link-item.active .link-icon,
+.link-dl.active .link-icon{
     color: var(--primary-color);
 }
+
 .link-text{
     position: absolute;
     font-size: 12px;
@@ -783,9 +790,12 @@ transform: translateY(-10px);
     transform: translateY(32px);
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-.link-item.active .link-text{
+
+.link-item.active .link-text,
+.link-dl.active .link-text{
     opacity: 1;
 }
+
 .indicator{
     position: absolute;
     top: -14px;
@@ -855,7 +865,6 @@ transform: translateY(-10px);
         align-items: center;
         background-color: var(--sidebar-color);
         border-radius: 10px;
-        box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
     }
 
     .expenses-total {
@@ -867,7 +876,6 @@ transform: translateY(-10px);
         align-items: center;
         background-color: var(--sidebar-color);
         border-radius: 10px;
-        box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
     }
 
     .balance {
@@ -878,7 +886,6 @@ transform: translateY(-10px);
         align-items: center;
         background-color: var(--sidebar-color);
         border-radius: 10px;
-        box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
     }
 
     .forms {
@@ -889,7 +896,6 @@ transform: translateY(-10px);
         padding: 5vh 0;
         background-color: var(--sidebar-color);
         border-radius: 10px;
-        box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
         align-items: center;
     }
 
