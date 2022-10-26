@@ -32,7 +32,7 @@ body {
     height: 100vh;
     background: var(--body-color);
     transition: var(--tran-06);
-    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 body.dark {
@@ -249,21 +249,22 @@ body.dark .switch::before {
 #dashboard-section {
     position: absolute;
     height: 100vh;
-    overflow: auto;
-    width: calc(100% - 250px);
+    width: 100%;
     top: 0;
     left: 250px;
     transition: var(--tran-05);
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
 }
 
 .sidebar.close~#dashboard-section {
+    position: absolute;
     top: 0;
     left: 78px;
     height: 100vh;
-    width: calc(100% - 78px);
+    width: 100%;
 }
 
 #dashboard-section>h1 {
@@ -274,7 +275,7 @@ body.dark .switch::before {
 }
 
 .dash-cards {
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -283,7 +284,7 @@ body.dark .switch::before {
 }
 
 .income-total {
-    width: 30%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -294,7 +295,7 @@ body.dark .switch::before {
 }
 
 .expenses-total {
-    width: 30%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -305,7 +306,7 @@ body.dark .switch::before {
 }
 
 .balance {
-    width: 30%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -317,7 +318,7 @@ body.dark .switch::before {
 
 body.dark .income-total,
 body.dark .expenses-total,
-body.dark .balance{
+body.dark .balance {
     box-shadow: none;
 }
 
@@ -364,7 +365,7 @@ body.dark .balance{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-body.dark #list-dash{
+body.dark #list-dash {
     box-shadow: none;
 }
 
@@ -386,7 +387,7 @@ body.dark #list-dash{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-body.dark .forms{
+body.dark .forms {
     box-shadow: none;
 }
 
@@ -571,11 +572,11 @@ body.dark .forms{
 /* To Do Section */
 #todo-section {
     position: absolute;
-    width: calc(100% - 250px);
-    top: 0;
-    left: 3250px;
+    width: 100%;
+    top: 3000px;
+    left: 0;
     height: 100vh;
-    overflow: auto;
+    overflow-y: scroll;
     background-color: var(--body-color);
     transition: var(--tran-05);
     display: flex;
@@ -587,9 +588,9 @@ body.dark .forms{
 .sidebar.close~#todo-section {
     top: 0;
     position: absolute;
-    left: 3078px;
+    left: 3000px;
     height: 100vh;
-    width: calc(100% - 78px);
+    width: 100%;
 }
 
 #todo-section .todo-header {
@@ -736,78 +737,80 @@ body.dark #todo-section .todo-header {
 @media only screen and (max-width: 672px) {
 
     /* Mobile Nav Special Thanks to CodingLab for amazing tutorials */
-    nav{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    background: var(--sidebar-color);
-    padding: 0 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-.nav-content{
-    display: flex;
-    height: 100px;
-    align-items: center;
-    list-style: none;
-    position: relative;
-}
-.link-item,
-.link-dl{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100px;
-    width: 95px;
-    text-decoration: none;
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
+    .nav {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        background: var(--sidebar-color);
+        padding: 0 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
 
-.link-item.active,
-.link-dl.active{
-    transform: translateY(-10px);
-}
+    .nav-content {
+        display: flex;
+        height: 100px;
+        align-items: center;
+        list-style: none;
+        position: relative;
+    }
 
-.link-icon{
-    font-size: 38px;
-    color: var(--text-color);
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
+    .link-item,
+    .link-dl {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100px;
+        width: 95px;
+        text-decoration: none;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
 
-.link-item.active .link-icon,
-.link-dl.active .link-icon{
-    color: var(--primary-color);
-}
+    .link-item.active,
+    .link-dl.active {
+        transform: translateY(-10px);
+    }
 
-.link-text{
-    position: absolute;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--primary-color);
-    opacity: 0;
-    transform: translateY(32px);
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
+    .link-icon {
+        font-size: 38px;
+        color: var(--text-color);
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
 
-.link-item.active .link-text,
-.link-dl.active .link-text{
-    opacity: 1;
-}
+    .link-item.active .link-icon,
+    .link-dl.active .link-icon {
+        color: var(--primary-color);
+    }
 
-.indicator{
-    position: absolute;
-    top: -14px;
-    left: 48px;
-    height: 36px;
-    width: 36px;
-    background-color: var(--primary-color);
-    border: 6px solid var(--sidebar-color);
-    border-radius: 50%;
-    transform: translateX(-50%);
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
+    .link-text {
+        position: absolute;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--primary-color);
+        opacity: 0;
+        transform: translateY(32px);
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .link-item.active .link-text,
+    .link-dl.active .link-text {
+        opacity: 1;
+    }
+
+    .indicator {
+        position: absolute;
+        top: -14px;
+        left: 48px;
+        height: 36px;
+        width: 36px;
+        background-color: var(--primary-color);
+        border: 6px solid var(--sidebar-color);
+        border-radius: 50%;
+        transform: translateX(-50%);
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
 
     /* Sidebar Hide */
 
@@ -819,23 +822,18 @@ body.dark #todo-section .todo-header {
 
     /* Dashboard Section */
 
-    #dashboard-section {
+    #dashboard-section,
+    .sidebar.close~#dashboard-section {
         clear: both;
-        position: absolute;
         height: 100vh;
         width: 100%;
         top: 0;
+        left: 0;
         transition: var(--tran-05);
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
-
-    .sidebar.close~#dashboard-section {
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100%;
+        overflow-y: scroll;
     }
 
     .dash-cards {
@@ -952,10 +950,12 @@ body.dark #todo-section .todo-header {
     }
 
     /* To Do Section */
-    #todo-section {
+    #todo-section,
+    .sidebar.close~#todo-section {
         position: absolute;
         width: 90%;
-        top: 2000px;
+        top: 3000px;
+        left: 0;
         height: 100vh;
         background-color: var(--body-color);
         transition: var(--tran-05);
@@ -963,6 +963,7 @@ body.dark #todo-section .todo-header {
         flex-direction: column;
         align-content: center;
         align-items: center;
+        overflow-y: scroll;
     }
 
     #todo-section .todo-header {
@@ -970,14 +971,6 @@ body.dark #todo-section .todo-header {
         font-weight: 500;
         color: var(--text-color);
         padding: 4vh 0 0 0;
-    }
-
-    .sidebar.close~#todo-section {
-        top: 2000px;
-        left: 0;
-        position: absolute;
-        width: 100%;
-        height: 100vh;
     }
 
     body.dark #todo-section .todo-header {
