@@ -746,9 +746,26 @@ body.dark #todo-section .todo-header {
     text-decoration: none;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+
+.link-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100px;
+    width: 95px;
+    text-decoration: none;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
 .link-item.active{
     transform: translateY(-10px);
 }
+
+.link-btn{
+transform: translateY(-10px);
+}
+
 .link-icon{
     font-size: 38px;
     color: var(--text-color);
