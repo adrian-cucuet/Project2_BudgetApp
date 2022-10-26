@@ -727,7 +727,6 @@ body.dark #todo-section .todo-header {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     background: var(--sidebar-color);
-    padding: 0 25px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 .nav-content{
