@@ -70,11 +70,6 @@ totalIncomeBtn.addEventListener("click", () => {
         //Clear input
         totalIncome.value = "";
     }
-
-    totalIncomeBtn.classList.toggle("success");
-    totalIncomeBtn.classList.remove("submit-income:hover", "submit-income");
-    totalIncomeBtn.innerHTML = "<i class='bx bx-like success-icon'></i>";
-    document.getElementById("total-income-btn").disabled = true;
 });
 
 // ===> Disable Buttons
@@ -219,5 +214,14 @@ linkItems.forEach((linkItem, index) => {
         const indicator = document.querySelector(".indicator");
 
         indicator.style.left = `${index * 95 + 48}px`;
+    });
+});
+
+const linkDl = document.querySelectorAll(".link-dl");
+
+linkDl.forEach((linkDl, index) => {
+    linkDl.addEventListener("click", () => {
+        document.querySelector(".active").classList.remove("active");
+        linkDl.classList.add("active");
     });
 });
