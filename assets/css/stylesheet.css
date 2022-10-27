@@ -691,6 +691,64 @@ body.dark #todo-section .todo-header {
     pointer-events: none;
 }
 
+/* Modal Info Section */
+#info-section.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  
+  .sidebar.close~#info-section {
+    position: absolute;
+    top: 6000px;
+    left: 78px;
+    height: 100vh;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+#info-section {
+    position: absolute;
+    top: 6000px;
+    left: 250px;
+    transition: var(--tran-05);
+    height: 100vh;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+  .info-content h1 {
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+    font-size: 2rem;
+  }
+
+  .info-content p {
+    margin: 1vh 0;
+  }
+
+  .info-content {
+    width: 80%;
+    text-align: left;
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+
 
 /* ANIMATION */
 
@@ -738,7 +796,7 @@ body {
 }
 
     /* Mobile Nav Special Thanks to CodingLab for amazing tutorials */
-    .nav {
+    .nav-mobile {
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -749,7 +807,7 @@ body {
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
-    .nav-content {
+    .nav-mobile-content {
         display: flex;
         height: 100px;
         align-items: center;

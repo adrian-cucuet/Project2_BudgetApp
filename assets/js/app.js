@@ -21,6 +21,29 @@ modeSwitch.addEventListener("click", () => {
 
 });
 
+// ===> MOBILE NAV BAR - 
+const linkItems = document.querySelectorAll(".link-item");
+
+linkItems.forEach((linkItem, index) => {
+    linkItem.addEventListener("click", () => {
+        document.querySelector(".active").classList.remove("active");
+        linkItem.classList.add("active");
+
+        const indicator = document.querySelector(".indicator");
+
+        indicator.style.left = `${index * 95 + 48}px`;
+    });
+});
+
+const linkDl = document.querySelectorAll(".link-dl");
+
+linkDl.forEach((linkDl, index) => {
+    linkDl.addEventListener("click", () => {
+        document.querySelector(".active").classList.remove("active");
+        linkDl.classList.add("active");
+    });
+});
+
 // ===> Function for Dark - Light mode mobile navigation
 function darkLight() {
     body.classList.toggle("dark");
@@ -36,11 +59,12 @@ function darkLight() {
     };
 }
 
-/* Selectors */
+// ===> BUDGET APP - With help from a tutorial https://codingartistweb.com/
+
+// Selectors
 
 let totalIncome = document.getElementById("total-income");
 let userExpenses = document.getElementById("buy-amount");
-
 const submitAmountBtn = document.getElementById("submit-amount-btn");
 const totalIncomeBtn = document.getElementById("total-income-btn");
 const productTitle = document.getElementById("buy-title");
@@ -51,7 +75,6 @@ const income = document.getElementById("income-value");
 const expenses = document.getElementById("expenses-value");
 const balance = document.getElementById("balance-value");
 const list = document.getElementById("list-dash");
-
 let tempAmount = 0;
 
 // ===> Set Income Amount
@@ -145,7 +168,8 @@ submitAmountBtn.addEventListener("click", () => {
     userExpenses.value = "";
 });
 
-// ===> To Do Section
+// ===> TO DO APP - followed a tutorial from https://developedbyed.com/
+
 // Selectors
 const todoInput = document.querySelector(".todo-input");
 const todoBtn = document.querySelector(".todo-btn");
@@ -155,7 +179,7 @@ const todoList = document.querySelector(".todo-list");
 todoBtn.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteItem);
 
-//Functions
+// ===> Functions to add to do item
 function addTodo(event) {
     event.preventDefault();
 
@@ -183,10 +207,10 @@ function addTodo(event) {
     todoInput.value = "";
 };
 
-// ===> To delete items from todo list
+// ===> Function for complete and delete items from to do list
 function deleteItem(e) {
     const item = e.target;
-    //Delete item from todo
+    // Delete item from todo
     if (item.classList[0] === "deleted-btn") {
         const todo = item.parentElement;
         todo.classList.add("moving");
@@ -194,34 +218,9 @@ function deleteItem(e) {
             todo.remove();
         });
     }
-
+    // Stroke text and opacity for done item
     if (item.classList[0] === "completed-btn") {
         const todo = item.parentElement;
         todo.classList.toggle("done");
     }
 };
-
-
-// ===> MOBILE NAV BAR
-
-const linkItems = document.querySelectorAll(".link-item");
-
-linkItems.forEach((linkItem, index) => {
-    linkItem.addEventListener("click", () => {
-        document.querySelector(".active").classList.remove("active");
-        linkItem.classList.add("active");
-
-        const indicator = document.querySelector(".indicator");
-
-        indicator.style.left = `${index * 95 + 48}px`;
-    });
-});
-
-const linkDl = document.querySelectorAll(".link-dl");
-
-linkDl.forEach((linkDl, index) => {
-    linkDl.addEventListener("click", () => {
-        document.querySelector(".active").classList.remove("active");
-        linkDl.classList.add("active");
-    });
-});
