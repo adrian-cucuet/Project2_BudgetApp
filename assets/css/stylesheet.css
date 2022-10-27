@@ -570,7 +570,8 @@ body.dark .forms {
 }
 
 /* To Do Section */
-#todo-section {
+#todo-section,
+.sidebar.close~#todo-section {
     position: absolute;
     width: 100%;
     top: 3000px;
@@ -583,14 +584,6 @@ body.dark .forms {
     flex-direction: column;
     align-content: center;
     align-items: center;
-}
-
-.sidebar.close~#todo-section {
-    top: 0;
-    position: absolute;
-    left: 3000px;
-    height: 100vh;
-    width: 100%;
 }
 
 #todo-section .todo-header {
