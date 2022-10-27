@@ -826,7 +826,6 @@ body {
     #dashboard-section,
     .sidebar.close~#dashboard-section {
         clear: both;
-        height: 100vh;
         width: 100%;
         top: 0;
         left: 0;
@@ -957,7 +956,6 @@ body {
         width: 100%;
         top: 3000px;
         left: 0;
-        height: 100vh;
         background-color: var(--body-color);
         transition: var(--tran-05);
         display: flex;
