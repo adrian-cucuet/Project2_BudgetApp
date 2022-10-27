@@ -730,6 +730,13 @@ body.dark #todo-section .todo-header {
 
 @media only screen and (max-width: 672px) {
 
+body {
+    height: 100vh;
+    background: var(--body-color);
+    transition: var(--tran-06);
+    overflow-y: hidden;
+}
+
     /* Mobile Nav Special Thanks to CodingLab for amazing tutorials */
     .nav {
         position: fixed;
