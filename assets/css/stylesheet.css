@@ -691,7 +691,7 @@ body.dark #todo-section .todo-header {
     pointer-events: none;
 }
   
-  /* Modal Content/Box */
+  /* Info Section */
   
   .sidebar.close~#info-section {
     position: absolute;
@@ -878,6 +878,7 @@ body {
         flex-direction: column;
         align-items: center;
         overflow-y: scroll;
+        padding-bottom: 120px;
     }
 
     .dash-cards {
@@ -1007,6 +1008,7 @@ body {
         align-content: center;
         align-items: center;
         overflow-y: scroll;
+        padding-bottom: 120px;
     }
 
     #todo-section .todo-header {
@@ -1123,6 +1125,7 @@ body {
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
+    padding-bottom: 120px;
 }
 
 #info-section {
@@ -1135,6 +1138,7 @@ body {
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
+    padding-bottom: 120px;
 }
 
   .info-content h1 {
