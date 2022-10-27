@@ -730,6 +730,7 @@ body.dark #todo-section .todo-header {
 .done {
     text-decoration: line-through;
     opacity: 0.5;
+    transition: var(--tran-03)
 }
 
 /* Screen size less than 672px */
@@ -953,7 +954,7 @@ body.dark #todo-section .todo-header {
     #todo-section,
     .sidebar.close~#todo-section {
         position: absolute;
-        width: 90%;
+        width: 100%;
         top: 3000px;
         left: 0;
         height: 100vh;
